@@ -1,6 +1,7 @@
 # pdf_stamp
 ---
 ## Requirements
+
 Python 3.8 or later with all requirements.txt dependencies installed. To install run:
 `
 pip install -U -r requirements.txt
