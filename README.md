@@ -9,7 +9,7 @@ pip install -U -r requirements.txt
 `
 
 
-##stamping
+## stamping
 `
 python pdf_stamp.py --source --output --x --y --w --h --page
 `
