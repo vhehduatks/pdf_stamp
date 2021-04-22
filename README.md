@@ -9,8 +9,6 @@ pip install -U -r requirements.txt
 ## stamping
 `
 python pdf_stamp.py --source --output --x --y --w --h --page  
-`
-
 
 optional arguments:  
     -h, --help       show this help message and exit  
@@ -21,3 +19,4 @@ optional arguments:
     --w W            width of stamp  
     --h H            height of stamp  
     --page PAGE      stamping page  
+    `
