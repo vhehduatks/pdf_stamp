@@ -5,19 +5,18 @@ from glob import glob
 from reportlab.pdfgen import canvas
 
 
-
 #only png available masking
 def make_stamp(stamp,x,y,w=None,h=None):
-    c=canvas.Canvas('stamp.pdf')
     mask=[255,255,255,255,255,255]
+    c=canvas.Canvas('stamp.pdf')
     c.drawImage(stamp, x=x, y=y, width=w, height=h, mask=mask)
     c.save()
+
 
 def make_output(opt):
     pdf_Path,save_Path,x,y,w,h,page=\
         opt.source,opt.output,opt.x,opt.y,opt.w,opt.h,opt.page
 
- 
     if w+h>0:
         make_stamp('stamp.jpg',x,y,w,h)
     else:
@@ -49,10 +48,8 @@ def make_output(opt):
                 input_page.mergePage(stamp_pdf.getPage(0))
             output_pdf.addPage(input_page)
 
-
         with open(save_Path+'/output_'+file_name,'wb') as f3:
             output_pdf.write(f3)
-
 
 
 if __name__ == '__main__':
@@ -65,6 +62,5 @@ if __name__ == '__main__':
     parser.add_argument('--h', type=int,default=0, help='height of stamp')
     parser.add_argument('--page', type=int,default=-1, help='stamping page')
     args=parser.parse_args()
-
 
     make_output(args)
