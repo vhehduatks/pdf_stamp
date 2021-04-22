@@ -2,8 +2,9 @@
 ---
 ## Requirements
 ---
-<br><br/>
+
 Python 3.8 or later with all requirements.txt dependencies installed. To install run:
+<br><br/>
 `
 pip install -U -r requirements.txt
 `
