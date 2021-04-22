@@ -11,14 +11,14 @@ pip install -U -r requirements.txt
 
 ## stamping
 `
-python pdf_stamp.py --source --output --x --y --w --h --page
+python pdf_stamp.py --source --output --x --y --w --h --page  
 `
-optional arguments:
-  1.-h, --help       show this help message and exit
-  2.--source SOURCE  pdf input path
-  3.--output OUTPUT  pdf output path
-  4.--x X            x coord of stamp
-  5.--y Y            y coord of stamp
-  6.--w W            width of stamp
-  7.--h H            height of stamp
-  8.--page PAGE      stamping page
+optional arguments:  
+  -h, --help       show this help message and exit  
+  --source SOURCE  pdf input path  
+  --output OUTPUT  pdf output path  
+  --x X            x coord of stamp  
+  --y Y            y coord of stamp  
+  --w W            width of stamp  
+  --h H            height of stamp  
+  --page PAGE      stamping page  
