@@ -5,9 +5,8 @@ from glob import glob
 from reportlab.pdfgen import canvas
 
 
-# canvas_width,canvas_height=610,800
 
-#only png file masking available
+#only png available masking
 def make_stamp(stamp,x,y,w=None,h=None):
     c=canvas.Canvas('stamp.pdf')
     mask=[255,255,255,255,255,255]
@@ -18,19 +17,19 @@ def make_output(opt):
     pdf_Path,save_Path,x,y,w,h,page=\
         opt.source,opt.output,opt.x,opt.y,opt.w,opt.h,opt.page
 
-    condition='/*.pdf'
+ 
     if w+h>0:
         make_stamp('stamp.jpg',x,y,w,h)
     else:
         make_stamp('stamp.jpg',x,y)
-    ret=glob(pdf_Path+condition)
 
+    condition='/*.pdf'
     for path in glob(pdf_Path+condition):
         input_pdf=PyPDF2.PdfFileReader(open(path,'rb'))
         stamp_pdf=PyPDF2.PdfFileReader(open('stamp.pdf','rb'))
+        output_pdf=PyPDF2.PdfFileWriter()
         file_name=path.split('\\')
         file_name=file_name[-1]
-        output_pdf=PyPDF2.PdfFileWriter()
         input_page_num=0
         total_page=input_pdf.getNumPages()
 
@@ -45,7 +44,8 @@ def make_output(opt):
         for i in range(total_page):
             input_page=input_pdf.getPage(i)
             if i==input_page_num:
-                print('stamp in :',file_name,':',i,'page','(x,y):','(',opt.x,',',opt.y,')')
+                coord='('+str(opt.x)+','+str(opt.y)+')'
+                print('stamp in :',file_name,'%4d'%i,'page :','coord',coord)
                 input_page.mergePage(stamp_pdf.getPage(0))
             output_pdf.addPage(input_page)
 
