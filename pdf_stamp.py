@@ -14,7 +14,7 @@ def make_stamp(stamp,x,y,w=None,h=None):
     c.drawImage(stamp, x=x, y=y, width=w, height=h, mask=mask)
     c.save()
 
-def make_ouput(opt):
+def make_output(opt):
     pdf_Path,save_Path,x,y,w,h,page=\
         opt.source,opt.output,opt.x,opt.y,opt.w,opt.h,opt.page
 
@@ -67,4 +67,4 @@ if __name__ == '__main__':
     args=parser.parse_args()
 
 
-    make_ouput(args)
+    make_output(args)
