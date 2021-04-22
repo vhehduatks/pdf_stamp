@@ -1,4 +1,5 @@
 # pdf_stamp
+![캡처](https://user-images.githubusercontent.com/64114699/115660743-6ec87a00-a377-11eb-9b28-64530ce393b4.JPG)
 
 ## Requirements
 Python 3.8 or later with all requirements.txt dependencies installed. To install run:  
@@ -19,4 +20,4 @@ optional arguments:
     --w W            width of stamp  
     --h H            height of stamp  
     --page PAGE      stamping page  
-```
+`stamp
