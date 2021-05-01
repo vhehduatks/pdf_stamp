@@ -14,8 +14,8 @@ def make_stamp(stamp,x,y,w=None,h=None):
 
 
 def make_output(opt):
-    pdf_Path,save_Path,x,y,w,h,page=\
-        opt.source,opt.output,opt.x,opt.y,opt.w,opt.h,opt.page
+    pdf_Path,save_Path,x,y,w,h,page,bpage=\
+        opt.source,opt.output,opt.x,opt.y,opt.w,opt.h,opt.page,opt.bpage
 
     if w+h>0:
         make_stamp('stamp.jpg',x,y,w,h)
@@ -39,7 +39,7 @@ def make_output(opt):
         if opt.page !=-1:
             input_page_num=opt.page
         else:
-            input_page_num=total_page-1 
+            input_page_num=total_page-(1+bpage) 
         for i in range(total_page):
             input_page=input_pdf.getPage(i)
             if i==input_page_num:
@@ -60,7 +60,8 @@ if __name__ == '__main__':
     parser.add_argument('--y', type=int,default=10, help='y coord of stamp')
     parser.add_argument('--w', type=int,default=0, help='width of stamp')
     parser.add_argument('--h', type=int,default=0, help='height of stamp')
-    parser.add_argument('--page', type=int,default=-1, help='stamping page')
+    parser.add_argument('--page', type=int,default=-1, help='stamping page front')
+    parser.add_argument('--bpage', type=int,default=0, help='stamping page back')
     args=parser.parse_args()
 
     make_output(args)
